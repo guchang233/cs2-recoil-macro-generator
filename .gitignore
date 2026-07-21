@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# TRAE IDE 工作目录（自动生成的 specs 等）
+.trae/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
