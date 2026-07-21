@@ -10,7 +10,7 @@ interface NavbarProps {
 
 export function Navbar({ theme, onToggleTheme }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-50 glass-strong border-b border-border">
+    <header className="sticky top-0 z-50 glass-strong">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Crosshair size={22} className="text-primary" />
@@ -22,7 +22,7 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub 仓库"
-            className="btn-capsule glass text-secondary-foreground border border-border h-10 w-10 p-0"
+            className="btn-capsule glass text-foreground h-10 w-10 p-0"
           >
             <GithubIcon size={18} />
           </a>

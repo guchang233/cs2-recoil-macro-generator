@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import type { CalculatedPoint } from '../types/weapon';
 import type { Theme } from '../hooks/useTheme';
+import { Select } from './ui/Select';
 
 interface RecoilPreviewProps {
   pattern: CalculatedPoint[];
@@ -386,39 +387,41 @@ export function RecoilPreview({ pattern, weaponName, theme }: RecoilPreviewProps
   };
 
   return (
-    <div className="glass glass-inset rounded-3xl overflow-hidden border border-border">
+    <div className="glass rounded-3xl overflow-hidden">
       <canvas
         ref={canvasRef}
         className="w-full h-72 block"
       />
-      <div className="px-3 py-2 glass border-t border-border flex items-center gap-2">
+      <div className="px-3 py-2 glass-strong border-t border-transparent flex items-center gap-2">
         <button
           onClick={isPlaying ? handlePause : handlePlay}
-          className="btn-capsule shadow-md text-success-foreground border-0 px-3 py-1 text-sm bg-[image:linear-gradient(180deg,var(--state-success-dark),var(--state-success))]"
+          className="btn-capsule bg-primary text-primary-foreground px-3 py-1 text-sm"
         >
           {isPlaying ? '暂停' : '播放'}
         </button>
         <button
           onClick={handleReset}
-          className="btn-capsule glass border border-border text-secondary-foreground px-3 py-1 text-sm"
+          className="btn-capsule glass text-foreground px-3 py-1 text-sm"
         >
           重置
         </button>
         <div className="flex items-center gap-2 ml-2">
-          <span className="text-xs text-muted-foreground">速度:</span>
-          <select
-            value={speed}
-            onChange={(e) => setSpeed(parseFloat(e.target.value))}
-            className="glass border border-input rounded-md px-2 py-0.5 text-xs text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            <option value={0.25}>0.25x</option>
-            <option value={0.5}>0.5x</option>
-            <option value={1}>1x</option>
-            <option value={2}>2x</option>
-            <option value={4}>4x</option>
-          </select>
+          <span className="text-xs text-muted-foreground">速度</span>
+          <div className="w-24">
+            <Select
+              value={String(speed)}
+              options={[
+                { value: '0.25', label: '0.25x' },
+                { value: '0.5', label: '0.5x' },
+                { value: '1', label: '1x' },
+                { value: '2', label: '2x' },
+                { value: '4', label: '4x' },
+              ]}
+              onChange={(v) => setSpeed(parseFloat(v))}
+            />
+          </div>
         </div>
-        <div className="ml-auto text-xs text-muted-foreground">
+        <div className="ml-auto text-xs text-muted-foreground font-mono">
           {Math.round(progress * 100)}%
         </div>
       </div>

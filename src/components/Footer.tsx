@@ -2,7 +2,7 @@ import { GithubIcon } from './icons/GithubIcon';
 
 export function Footer() {
   return (
-    <footer className="glass-strong border-t border-border">
+    <footer className="glass-strong">
       <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
         <div>
           <p>© {new Date().getFullYear()} CS2 压枪宏生成器</p>
@@ -12,7 +12,7 @@ export function Footer() {
           href="https://github.com/guchang233/cs2-recoil-macro-generator"
           target="_blank"
           rel="noreferrer"
-          className="btn-capsule glass border border-border text-secondary-foreground h-10 px-4 text-sm"
+          className="btn-capsule glass text-foreground h-10 px-4 text-sm"
         >
           <GithubIcon size={16} />
           GitHub
