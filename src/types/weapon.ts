@@ -16,27 +16,8 @@ export interface WeaponRecoilData {
   recoilPattern: RecoilAction[];
 }
 
-export interface UserConfig {
-  sensitivity: number;
-  dpi: number;
-  pollingRate: number;
-  intensity: number;
-}
-
-export interface PresetConfig {
-  id: string;
-  name: string;
-  config: UserConfig;
-  createdAt: number;
-}
-
 export interface CalculatedPoint {
   x: number;
   y: number;
   delay: number;
-}
-
-export interface CalculatedPattern {
-  pattern: CalculatedPoint[];
-  totalBullets: number;
 }
