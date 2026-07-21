@@ -4,10 +4,13 @@ export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary: 'bg-primary text-primary-foreground',
-  secondary: 'bg-secondary text-secondary-foreground',
-  success: 'bg-success text-success-foreground',
-  ghost: 'bg-transparent text-foreground hover:bg-accent',
+  primary:
+    'text-primary-foreground border-0 bg-[image:linear-gradient(180deg,var(--brand-400),var(--brand-600))]',
+  secondary:
+    'text-secondary-foreground border border-border bg-[image:linear-gradient(180deg,color-mix(in_srgb,var(--secondary)_80%,#ffffff_20%),var(--secondary))]',
+  success:
+    'text-success-foreground border-0 bg-[image:linear-gradient(180deg,var(--state-success-dark),var(--state-success))]',
+  ghost: 'bg-transparent text-foreground hover:bg-accent border border-transparent',
 };
 
 const SIZE_CLASSES: Record<ButtonSize, string> = {
@@ -29,7 +32,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`btn-capsule ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`.trim()}
+      className={`btn-capsule shadow-md ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`.trim()}
       {...props}
     />
   );

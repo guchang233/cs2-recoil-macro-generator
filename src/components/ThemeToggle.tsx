@@ -11,7 +11,7 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
     <button
       onClick={onToggle}
       aria-label="切换主题"
-      className="btn-capsule bg-secondary text-secondary-foreground h-10 w-10 p-0"
+      className="btn-capsule glass border border-border text-secondary-foreground h-10 w-10 p-0"
     >
       <span className="transition-transform duration-200 inline-flex">
         {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}

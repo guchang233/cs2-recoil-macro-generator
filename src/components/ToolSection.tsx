@@ -20,7 +20,7 @@ interface ToolSectionProps {
 }
 
 const inputClass =
-  'w-full sm:w-48 px-3 py-2 bg-background border border-input rounded-lg text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-[box-shadow]';
+  'w-full sm:w-48 px-3 py-2 glass border border-input rounded-xl text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-[box-shadow]';
 
 export function ToolSection(props: ToolSectionProps) {
   const {
